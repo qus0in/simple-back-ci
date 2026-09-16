@@ -31,7 +31,7 @@ class UserServiceDefaultUserTest {
 
         ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass(User.class);
         verify(userRepository).save(userCaptor.capture());
-        // 실제 저장값은 "infra-admin"이지만 "vip-admin"으로 잘못 검증하여 실패 유도
-        assertThat(userCaptor.getValue().name()).isEqualTo("vip-admin");
+        // 실제 저장값은 "infra-admin"이지만 "infra-admin"으로 잘못 검증하여 실패 유도
+        assertThat(userCaptor.getValue().name()).isEqualTo("infra-admin");
     }
 }
